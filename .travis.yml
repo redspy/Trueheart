@@ -6,8 +6,6 @@ node_js:
 install:
   - npm install -g ionic cordova
   - npm install
-  
-before_install:
   - ionic state restore
   
 before_script:
