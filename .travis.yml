@@ -3,9 +3,27 @@ language: node_js
 node_js:
   - "6.1"
 
-before_install:
+install:
   - npm install -g ionic cordova
+  - npm install
+  
+before_install:
+  - ionic state restore
   
 before_script:
-  - npm install
-  - ionic state restore
+  - wget http://dl.google.com/android/android-sdk_r24.4-linux.tgz
+  - tar -xvf android-sdk_r24.4-linux.tgz
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter platform-tools
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter build-tools-23.0.2
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter android-23
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-support
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-android-m2repository
+  - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter extra-google-m2repository
+  - export ANDROID_HOME=$PWD/android-sdk-linux
+  - export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2
+
+script:
+  - ionic platform remove android
+  - ionic platform add android
+  - ionic build android
+  - ls ionic info  
