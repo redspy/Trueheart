@@ -4,13 +4,15 @@ import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { ContactUsPage } from '../pages/contact-us/contact-us'
+import { ExamplePagePage } from '../pages/example-page/example-page'
 
 @NgModule({
   declarations: [
     MyApp,
     Page1,
     Page2,
-    ContactUsPage
+    ContactUsPage,
+    ExamplePagePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -20,7 +22,8 @@ import { ContactUsPage } from '../pages/contact-us/contact-us'
     MyApp,
     Page1,
     Page2,
-    ContactUsPage
+    ContactUsPage,
+    ExamplePagePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
