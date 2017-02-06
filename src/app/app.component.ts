@@ -12,7 +12,7 @@ import { ExamplePagePage } from '../pages/example-page/example-page'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = ExamplePagePage;
 
   pages: Array<{title: string, component: any}>;
 
