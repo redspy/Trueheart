@@ -16,10 +16,10 @@
   <div class="abcd" [ngStyle]="{'background-image': 'url(' + selectedItem.image + ')'}"></div>
 
   <ion-fab right bottom>
-    <button ion-fab color="dark"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="dark"><ion-icon name="menu"></ion-icon></button>
     <ion-fab-list side="top">
-      <button ion-fab (click)="changeFontSize('down')" color="dark"><ion-icon name="arrow-dropdown-circle"></ion-icon></button>
-      <button ion-fab (click)="changeFontSize('up')" color="dark"><ion-icon name="arrow-dropup-circle"></ion-icon></button>
+      <button ion-fab (click)="changeFontSize('down')" color="dark"><ion-icon name="remove"></ion-icon></button>
+      <button ion-fab (click)="changeFontSize('up')" color="dark"><ion-icon name="add"></ion-icon></button>
       <button ion-fab (click)="showToast('Add Favorite')" color="dark"><ion-icon name="star"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
