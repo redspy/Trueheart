@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { ExampleDetailPage } from '../../pages/example-detail/example-detail';
 import data from '../../assets/data/mydata.json';
 /*
   Generated class for the ExamplePage page.
@@ -15,7 +16,7 @@ import data from '../../assets/data/mydata.json';
 export class ExamplePagePage {
 
   selectedItem: any;
-  items: Array<{ id: string, title: string, subtitle: string, image: string }>;
+  items: Array<{ id: string, title: string, subtitle: string, body: string, image: string }>;
   imsages: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
@@ -30,6 +31,7 @@ export class ExamplePagePage {
         id: data.poets[i].id,
         title: data.poets[i].title,
         subtitle: data.poets[i].subtitle, 
+        body: data.poets[i].body,
         image: this.imsages[Math.floor(Math.random() * this.imsages.length)]
       }); 
     }
@@ -38,9 +40,9 @@ export class ExamplePagePage {
 
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    // this.navCtrl.push(Page2, {
-    //   item: item
-    // });
+    this.navCtrl.push(ExampleDetailPage, {
+      item: item
+    });
   }
 
   ionViewDidLoad() {  

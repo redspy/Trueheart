@@ -17,7 +17,7 @@
     <ion-refresher-content>새로고침</ion-refresher-content>
   </ion-refresher>
   <ion-list>
-    <ion-card ion-item *ngFor="let item of items" (click)="showToast('bottom')">
+    <ion-card ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
     <img [src]="item.image" />
     <div class="card-title">{{item.title}}</div>
     <div class="card-subtitle">{{item.subtitle}}</div>
