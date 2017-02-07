@@ -20,11 +20,12 @@ export class MyApp {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
+    // Left Menu Page title Name(by wonik)
     this.pages = [
       { title: 'Example', component: ExamplePagePage},
       { title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },
-      { title: 'Contact us', component: ContactUsPage }
+      { title: 'Contact usSSS', component: ContactUsPage }
     ];
 
   }
