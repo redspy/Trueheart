@@ -37,5 +37,30 @@
     width: 100%;
     color: #fff;
   }
+}
 
+.toolbar-background-md {
+  border-color: #b2b2b2;
+  background: #386A6B;
+}
+.toolbar-title-md {
+  padding: 0 12px;
+  font-size: 2rem;
+  font-weight: 500;
+  color:#fff;
+}
+
+ion-icon {
+  display: inline-block;
+  font-family: "Ionicons";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: auto;
+  text-transform: none;
+  speak: none;
+  color:#fff;
 }
