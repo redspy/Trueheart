@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-
-import { Http } from '@angular/http';
-
-import 'rxjs/add/operator/map';
+import data from '../../assets/data/mydata.json';
 /*
   Generated class for the ExamplePage page.
 
@@ -16,42 +13,37 @@ import 'rxjs/add/operator/map';
   templateUrl: 'example-page.html'
 })
 export class ExamplePagePage {
-  private data: any;
 
-  public getData() {
-    this.http.get('assets/data/mydata.json')
-      .map((res) => res.json())
-      .subscribe(data => {
-        this.data = data;
-      }, (rej) => { console.error("Could not load local data", rej) });
+  selectedItem: any;
+  items: Array<{ id: string, title: string, subtitle: string, image: string }>;
+  imsages: string[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+    this.itemAssign();
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private http: Http) {
-    this.getData();
-   this.load();
-   }
-load() {
-      if (this.data) {
-          // already loaded data
-          return Promise.resolve(this.data);
-      }
+  itemAssign() {
+    this.items = [];
+    this.imsages = ['assets/img/pocket-watch-2036304_1920.jpg', 'assets/img/european-eagle-owl-2010346_1280.jpg', 'assets/img/orange-1995056_1280.jpg', 'assets/img/panorama-1993645_1280.jpg'];
+    for (let i = 0; i < data.poets.length; i++) {
+      this.items.push({
+        id: data.poets[i].id,
+        title: data.poets[i].title,
+        subtitle: data.poets[i].subtitle, 
+        image: this.imsages[Math.floor(Math.random() * this.imsages.length)]
+      }); 
+    }
 
-      // don't have the data yet
-      return new Promise(resolve => {
-          // We're using Angular Http provider to request the data,
-          // then on the response it'll map the JSON data to a parsed JS object.
-          // Next we process the data and resolve the promise with the new data.
-          this.http.get('assets/data/mydata.json').subscribe(res => {
-              // we've got back the raw data, now generate the core schedule data
-              // and save the data for later reference
-              this.data = res.json();
-              resolve(this.data);
-              console.log(this.data);
-          });
-      });
-  }  
+  }
 
-  ionViewDidLoad() {
+  itemTapped(event, item) {
+    // That's right, we're pushing to ourselves!
+    // this.navCtrl.push(Page2, {
+    //   item: item
+    // });
+  }
+
+  ionViewDidLoad() {  
     console.log('ionViewDidLoad ExamplePagePage');
   }
   showToast(position: string) {
@@ -62,5 +54,14 @@ load() {
     });
 
     toast.present(toast);
+  }
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.itemAssign();
+      refresher.complete();
+    }, 2000);
   }
 }
