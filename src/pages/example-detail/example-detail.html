@@ -21,7 +21,7 @@
     <ion-fab-list side="top">
       <button ion-fab (click)="changeFontSize('down')" color="dark"><ion-icon name="remove"></ion-icon></button>
       <button ion-fab (click)="changeFontSize('up')" color="dark"><ion-icon name="add"></ion-icon></button>
-      <button ion-fab (click)="showToast('Add Favorite')" color="dark"><ion-icon name="star" [ngClass]="{'favorite': favorite}"></ion-icon></button>
+      <button ion-fab (click)="toggleFavorite()" color="dark"><ion-icon name="star" [ngClass]="{'favorite': favorite}"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>

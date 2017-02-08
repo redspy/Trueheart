@@ -44,6 +44,17 @@ export class ExampleDetailPage {
     this.configService.setFavorite(this.selectedItem.id, this.favorite);
   }
 
+  toggleFavorite() {
+    let toast = this.toastCtrl.create({
+      message: this.favorite ? '즐겨찾기 삭제' : '즐겨찾기 추가',
+      duration: 2000,
+      position: 'bottom'
+    });
+    toast.present(toast);
+    this.favorite = !this.favorite;
+    this.configService.setFavorite(this.selectedItem.id, this.favorite);
+  }
+
   changeFontSize(option: string) {
     if (option == 'up') {
       this.fontSize = this.fontSize + 0.1;
