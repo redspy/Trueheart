@@ -19,7 +19,7 @@ import {File} from 'ionic-native';
 export class ExamplePagePage {
 
   selectedItem: any;
-  items: Array<{ id: string, title: string, subtitle: string, body: string, image: string }>;
+  items: Array<{ id: string, title: string, body: string, image: string }>;
   images: string[];
   @ViewChild(Content) protected content: Content;
 
@@ -56,12 +56,11 @@ export class ExamplePagePage {
                     'assets/img/glass-1206584_640.jpg',
                     'assets/img/tree-51358_640.png',
                     'assets/img/panorama-1993645_1280.jpg'];
-    for (let i = 0; i < data.poets.length; i++) {
+    for (let i = 0; i < data.poems.length; i++) {
       this.items.push({
-        id: data.poets[i].id,
-        title: data.poets[i].title,
-        subtitle: data.poets[i].subtitle, 
-        body: data.poets[i].body,
+        id: data.poems[i].id,
+        title: data.poems[i].title,
+        body: data.poems[i].body,
         image: this.images[Math.floor(Math.random() * this.images.length)]
       }); 
     }
