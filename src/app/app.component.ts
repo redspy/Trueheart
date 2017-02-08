@@ -25,8 +25,8 @@ export class MyApp {
     // Left Menu Page title Name(by wonik)
     this.pages = [
       { title: '씨, 발아한다', component: ExamplePagePage},
-      { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 },
+      // { title: 'Page One', component: Page1 },
+      // { title: 'Page Two', component: Page2 },
       { title: '즐겨찾기', component: FavoritePage},
       { title: 'Contact Us', component: ContactUsPage }
     ];
