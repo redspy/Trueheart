@@ -12,16 +12,15 @@
     <ion-title>ExamplePage</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content class="card-background-page">
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+<ion-content class="card-background-page" has-bouncing="true">
+  <ion-refresher pulling-text="Pull to refresh..." (ionRefresh)="doRefresh($event)">
     <ion-refresher-content>새로고침</ion-refresher-content>
   </ion-refresher>
   <ion-list>
     <ion-card ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-    <img [src]="item.image" />
-    <div class="card-title">{{item.title}}</div>
-    <div class="card-subtitle">{{item.subtitle}}</div>
-  </ion-card>
-  </ion-list>  
-
+      <img [src]="item.image" />
+      <div class="card-title">{{item.title}}</div>
+      <div class="card-subtitle">{{item.subtitle}}</div>
+    </ion-card>
+  </ion-list>
 </ion-content>
