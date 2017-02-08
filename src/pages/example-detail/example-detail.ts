@@ -24,6 +24,9 @@ export class ExampleDetailPage {
               public toastCtrl: ToastController,
               private configService: ConfigService) {
     this.selectedItem = navParams.get('item');
+    if (configService.getFontSize() < 1.4) {
+      this.configService.setFontSize(1.4);  
+    }
     this.fontSize = configService.getFontSize();
     this.fontSizeString = this.fontSize + 'rem';
     this.favorite = configService.getFavorite(this.selectedItem.id);
