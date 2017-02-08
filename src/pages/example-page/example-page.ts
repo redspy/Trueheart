@@ -5,6 +5,7 @@ import { ExampleDetailPage } from '../../pages/example-detail/example-detail';
 import data from '../../assets/data/mydata.json';
 
 import { Content } from 'ionic-angular';
+import {File} from 'ionic-native';
 /*
   Generated class for the ExamplePage page.
 
@@ -19,7 +20,7 @@ export class ExamplePagePage {
 
   selectedItem: any;
   items: Array<{ id: string, title: string, subtitle: string, body: string, image: string }>;
-  imsages: string[];
+  images: string[];
   @ViewChild(Content) protected content: Content;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
@@ -31,7 +32,7 @@ export class ExamplePagePage {
 
   itemAssign() {
     this.items = [];
-    this.imsages = ['assets/img/pocket-watch-2036304_1920.jpg', 
+    this.images = ['assets/img/pocket-watch-2036304_1920.jpg', 
                     'assets/img/european-eagle-owl-2010346_1280.jpg', 
                     'assets/img/orange-1995056_1280.jpg', 
                     'assets/img/white-tailed-eagle-2015098_640.jpg',
@@ -61,7 +62,7 @@ export class ExamplePagePage {
         title: data.poets[i].title,
         subtitle: data.poets[i].subtitle, 
         body: data.poets[i].body,
-        image: this.imsages[Math.floor(Math.random() * this.imsages.length)]
+        image: this.images[Math.floor(Math.random() * this.images.length)]
       }); 
     }
   }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { ConfigService } from '../../services/configService';
 
 /*
   Generated class for the ExampleDetail page.
@@ -16,11 +17,16 @@ export class ExampleDetailPage {
   selectedItem: any;
   fontSizeString: any;
   fontSize: any;
+  favorite: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public toastCtrl: ToastController,
+              private configService: ConfigService) {
     this.selectedItem = navParams.get('item');
-    this.fontSize = 1.4;
+    this.fontSize = configService.getFontSize();
     this.fontSizeString = this.fontSize + 'rem';
+    this.favorite = configService.getFavorite(this.selectedItem.id);
   }
 
   ionViewDidLoad() {
@@ -33,11 +39,13 @@ export class ExampleDetailPage {
       position: 'bottom'
     });
     toast.present(toast);
+
+    this.favorite = !this.favorite;
+    this.configService.setFavorite(this.selectedItem.id, this.favorite);
   }
 
   changeFontSize(option: string) {
     if (option == 'up') {
-      
       this.fontSize = this.fontSize + 0.1;
     } else {
       if (this.fontSize > 1.4) {
@@ -45,5 +53,8 @@ export class ExampleDetailPage {
       }
     }
     this.fontSizeString = this.fontSize + 'rem';
+
+    this.configService.setFontSize(this.fontSize);
+    console.log(this.fontSize);
   }
 }
