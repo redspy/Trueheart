@@ -11,9 +11,11 @@
 </ion-header>
 <ion-content padding [ngStyle]="{'font-size' : fontSizeString}">
   <div class="abcd" [ngStyle]="{'background-image': 'url(' + selectedItem.image + ')'}"></div>
+
   <div text-center class="body-string">
     {{selectedItem.body}}
   </div>
+
   <ion-fab right bottom>
     <button ion-fab color="dark"><ion-icon name="menu"></ion-icon></button>
     <ion-fab-list side="top">
