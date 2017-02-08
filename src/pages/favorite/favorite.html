@@ -1,21 +1,22 @@
 <!--
-  Generated template for the ExamplePage page.
+  Generated template for the Favorite page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
+
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>씨, 발아한다</ion-title>
+    <ion-title>즐겨찾기</ion-title>
   </ion-navbar>
+
 </ion-header>
+
+
 <ion-content class="card-background-page" has-bouncing="true">
-  <ion-refresher pulling-text="Pull to refresh..." (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content>새로고침</ion-refresher-content>
-  </ion-refresher>
   <ion-list has-bouncing="true">
     <ion-card ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <img [src]="item.image" />

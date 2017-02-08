@@ -8,6 +8,8 @@ import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { ExamplePagePage } from '../pages/example-page/example-page';
 import { ExampleDetailPage } from '../pages/example-detail/example-detail';
 import { ConfigService } from '../services/configService';
+import { FavoritePage } from '../pages/favorite/favorite'
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { ConfigService } from '../services/configService';
     Page2,
     ContactUsPage,
     ExamplePagePage,
-    ExampleDetailPage
+    ExampleDetailPage,
+    FavoritePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -32,7 +35,8 @@ import { ConfigService } from '../services/configService';
     Page2,
     ContactUsPage,
     ExamplePagePage,
-    ExampleDetailPage
+    ExampleDetailPage,
+    FavoritePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ConfigService]
 })

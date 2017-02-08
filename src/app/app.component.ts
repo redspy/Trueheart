@@ -6,6 +6,8 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { ContactUsPage } from '../pages/contact-us/contact-us'
 import { ExamplePagePage } from '../pages/example-page/example-page'
+import { FavoritePage } from '../pages/favorite/favorite'
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -22,10 +24,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     // Left Menu Page title Name(by wonik)
     this.pages = [
-      { title: 'Example', component: ExamplePagePage},
+      { title: '씨, 발아한다', component: ExamplePagePage},
       { title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },
-      { title: 'Contact usSSS', component: ContactUsPage }
+      { title: '즐겨찾기', component: FavoritePage},
+      { title: 'Contact Us', component: ContactUsPage }
     ];
 
   }
