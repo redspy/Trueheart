@@ -14,13 +14,13 @@ import { ToastController } from 'ionic-angular';
 })
 export class ExampleDetailPage {
   selectedItem: any;
+  fontSizeString: any;
   fontSize: any;
-  fontSizeInteger: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
     this.selectedItem = navParams.get('item');
-    this.fontSizeInteger = 1.4;
-    this.fontSize = this.fontSizeInteger + 'rem';
+    this.fontSize = 1.4;
+    this.fontSizeString = this.fontSize + 'rem';
   }
 
   ionViewDidLoad() {
@@ -37,10 +37,13 @@ export class ExampleDetailPage {
 
   changeFontSize(option: string) {
     if (option == 'up') {
-      this.fontSizeInteger = this.fontSizeInteger + 0.1;
+      
+      this.fontSize = this.fontSize + 0.1;
     } else {
-      this.fontSizeInteger = this.fontSizeInteger - 0.1;
+      if (this.fontSize > 1.4) {
+        this.fontSize = this.fontSize - 0.1;
+      }
     }
-    this.fontSize = this.fontSizeInteger + 'rem';
+    this.fontSizeString = this.fontSize + 'rem';
   }
 }

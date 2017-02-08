@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { ExampleDetailPage } from '../../pages/example-detail/example-detail';
 import data from '../../assets/data/mydata.json';
+
+import { Content } from 'ionic-angular';
 /*
   Generated class for the ExamplePage page.
 
@@ -11,16 +13,20 @@ import data from '../../assets/data/mydata.json';
 */
 @Component({
   selector: 'page-example-page',
-  templateUrl: 'example-page.html'
+  templateUrl: 'example-page.html',
 })
 export class ExamplePagePage {
 
   selectedItem: any;
   items: Array<{ id: string, title: string, subtitle: string, body: string, image: string }>;
   imsages: string[];
+  @ViewChild(Content) protected content: Content;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
     this.itemAssign();
+    //this.content.scrollToBottom(300);
+    //let scrollContent = document.getElementById("ListContent");
+    //scrollContent.scrollTo(100,0);
   }
 
   itemAssign() {
@@ -35,7 +41,6 @@ export class ExamplePagePage {
         image: this.imsages[Math.floor(Math.random() * this.imsages.length)]
       }); 
     }
-
   }
 
   itemTapped(event, item) {

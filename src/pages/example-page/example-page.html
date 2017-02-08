@@ -16,7 +16,7 @@
   <ion-refresher pulling-text="Pull to refresh..." (ionRefresh)="doRefresh($event)">
     <ion-refresher-content>새로고침</ion-refresher-content>
   </ion-refresher>
-  <ion-list>
+  <ion-list has-bouncing="true">
     <ion-card ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <img [src]="item.image" />
       <div class="card-title">{{item.title}}</div>
