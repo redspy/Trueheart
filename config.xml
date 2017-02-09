@@ -5,6 +5,7 @@
   <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
   <content src="index.html"/>
   <access origin="*"/>
+  <preference name="ShowSplashScreenSpinner" value="false" />
   <allow-navigation href="http://ionic.local/*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
