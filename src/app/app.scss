@@ -66,7 +66,12 @@ ion-icon {
 }
 
 @font-face {
-font-family: '문체부 쓰기 흘림체';
-src: url('../assets/data/문체부 쓰기 흘림체.ttf') format("ttf");
+font-family: 'moon1';
+src: url('../assets/externfont/moon1.ttf') format("ttf");
+font-weight: 200
+}
+@font-face {
+font-family: 'moon2';
+src: url('../assets/externfont/moon2.ttf') format("ttf");
 font-weight: 200
 }

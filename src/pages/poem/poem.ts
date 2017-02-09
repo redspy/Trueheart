@@ -17,6 +17,7 @@ export class PoemPage {
   items: Array<{ id: string, title: string, body: string, image: string }>;
   images: string[];
   menuTitle: string;
+  footerShow: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private configService: ConfigService) {
     this.images = ['assets/img/pocket-watch-2036304_1920.jpg',
@@ -50,6 +51,7 @@ export class PoemPage {
     }
 
     this.menuTitle = this.items[0].title;
+    this.footerShow = false;    
   }
 
   alectContinue() {
@@ -102,6 +104,11 @@ export class PoemPage {
     let currentIndex = this.slides.getActiveIndex();
     this.menuTitle = this.items[currentIndex].title;
     this.configService.setLastPosition(currentIndex);
+    
     console.log("Current index is", currentIndex);
+  }
+
+  tapEvent(e) {
+    this.footerShow = !this.footerShow;
   }
 }

@@ -5,7 +5,6 @@ import { ExampleDetailPage } from '../../pages/example-detail/example-detail';
 import data from '../../assets/data/mydata.json';
 
 import { Content } from 'ionic-angular';
-import {File} from 'ionic-native';
 /*
   Generated class for the ExamplePage page.
 
