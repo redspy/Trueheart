@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/v2/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -15,12 +13,10 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 .card-background-page {
-
   ion-card {
     position: relative;
     text-align: center;
   }
-
   .card-title {
     position: absolute;
     top: 36%;
@@ -29,7 +25,6 @@
     font-weight: bold;
     color: #fff;
   }
-
   .card-subtitle {
     font-size: 1.0em;
     position: absolute;
@@ -43,11 +38,12 @@
   border-color: #b2b2b2;
   background: #386A6B;
 }
+
 .toolbar-title-md {
   padding: 0 12px;
   font-size: 2rem;
   font-weight: 500;
-  color:#fff;
+  color: #fff;
 }
 
 ion-icon {
@@ -62,16 +58,17 @@ ion-icon {
   text-rendering: auto;
   text-transform: none;
   speak: none;
-  color:#fff;
+  color: #fff;
 }
 
 @font-face {
-font-family: 'moon1';
-src: url('../assets/externfont/moon1.ttf') format("ttf");
-font-weight: 200
+  font-family: '문체부 궁체 흘림체';
+  src: url('../assets/externfont/moon1.ttf') format("ttf");
+  font-weight: 200
 }
+
 @font-face {
-font-family: 'moon2';
-src: url('../assets/externfont/moon2.ttf') format("ttf");
-font-weight: 200
+  font-family: '문체부 쓰기 흘림체';
+  src: url('../assets/externfont/moon2.ttf') format("ttf");
+  font-weight: 200
 }

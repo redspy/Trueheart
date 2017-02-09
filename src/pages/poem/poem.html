@@ -12,25 +12,29 @@
     <ion-title>{{menuTitle}}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
-  <ion-slides (ionSlideDidChange)="slideChanged()" (tap)="tapEvent($event)">
+<ion-content (tap)="tapEvent()">
+  <ion-slides (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let item of items">
-      <div text-center class="body-string" style="font-size : 1.2rem; font-family: 문체부 궁체 흘림체; font-weight : bold; line-height: 1.6">
+      <div text-center class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 문체부 궁체 흘림체; font-weight : bold; line-height: 1.6">
         {{item.body}}
       </div>
     </ion-slide>
   </ion-slides>
 </ion-content>
 <ion-footer *ngIf="footerShow" style="opacity: 0.7">
-  <ion-toolbar>
-    <button ion-button menuToggle end>
+  <ion-toolbar dark>
+    <ion-buttons end>
+    <button icon-only style="background : transparent" (click)="changeFontSize('up')">
       <ion-icon name="add"></ion-icon>
     </button>
-    <button ion-button menuToggle end>
+    <button icon-only style="background : transparent" (click)="changeFontSize('down')">
       <ion-icon name="remove"></ion-icon>
     </button>
-    <button ion-button menuToggle end>
-      <ion-icon name="star"></ion-icon>
-    </button>    
+    </ion-buttons>
+    <ion-buttons end>
+    <button icon-only rignt (click)="toggleFavorite()" style="background : transparent">
+      <ion-icon name="star" [ngClass]="{'favorite': favorite}"></ion-icon>
+    </button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer>

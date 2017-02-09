@@ -18,6 +18,10 @@ export class PoemPage {
   images: string[];
   menuTitle: string;
   footerShow: boolean;
+  fontSizeString: any;
+  fontSize: any;
+  favorite: boolean;
+  viewLoaded: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private configService: ConfigService) {
     this.images = ['assets/img/pocket-watch-2036304_1920.jpg',
@@ -49,9 +53,13 @@ export class PoemPage {
     if (configService.getLastPosition() != 0) {
       this.alectContinue();
     }
-
+    this.fontSize = configService.getFontSize();
+    this.fontSizeString = this.fontSize + 'rem';
     this.menuTitle = this.items[0].title;
-    this.footerShow = false;    
+    this.footerShow = false;
+    //this.favorite = configService.getFavorite(this.slides.getActiveIndex().toString());
+    this.favorite = false;
+    this.viewLoaded = false;
   }
 
   alectContinue() {
@@ -87,6 +95,9 @@ export class PoemPage {
     this.slides.zoom = true;
     // this.slides.slideTo(30, 2000, false);
   }
+  ngAfterViewChecked() {
+    this.viewLoaded = true;
+  }
 
   itemAssign() {
     this.items = [];
@@ -104,11 +115,32 @@ export class PoemPage {
     let currentIndex = this.slides.getActiveIndex();
     this.menuTitle = this.items[currentIndex].title;
     this.configService.setLastPosition(currentIndex);
-    
+    this.favorite = this.configService.getFavorite(this.slides.getActiveIndex().toString());
     console.log("Current index is", currentIndex);
   }
+  changeFontSize(option: string) {
+    if (option == 'up') {
+      this.fontSize = this.fontSize + 0.1;
+    } else {
+      if (this.fontSize > 1.0) {
+        this.fontSize = this.fontSize - 0.1;
+      }
+    }
+    this.fontSizeString = this.fontSize + 'rem';
 
-  tapEvent(e) {
-    this.footerShow = !this.footerShow;
+    this.configService.setFontSize(this.fontSize);
+    console.log(this.fontSize);
+  }
+  
+  tapEvent() {
+    if (this.viewLoaded) {
+      this.footerShow = !this.footerShow;
+      this.favorite = this.configService.getFavorite(this.slides.getActiveIndex().toString());
+    }
+  }
+
+  toggleFavorite() {
+    this.favorite = !this.favorite;
+    this.configService.setFavorite(this.items[this.slides.getActiveIndex()].id, this.favorite);
   }
 }
