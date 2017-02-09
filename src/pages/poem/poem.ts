@@ -95,7 +95,7 @@ export class PoemPage {
     this.slides.zoom = true;
     // this.slides.slideTo(30, 2000, false);
   }
-  ngAfterViewChecked() {
+  ngAfterContentChecked() {
     this.viewLoaded = true;
   }
 

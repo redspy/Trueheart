@@ -15,7 +15,7 @@
 <ion-content (tap)="tapEvent()">
   <ion-slides (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let item of items">
-      <div text-center class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 문체부 궁체 흘림체; font-weight : bold; line-height: 1.6">
+      <div text-center class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 문체부 궁체 흘림체; line-height: 1.6">
         {{item.body}}
       </div>
     </ion-slide>
