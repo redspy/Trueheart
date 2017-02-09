@@ -1,15 +1,15 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { LocalStorageModule } from 'angular-2-local-storage';
- import { MyApp } from './app.component';
+import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { ExamplePagePage } from '../pages/example-page/example-page';
 import { ExampleDetailPage } from '../pages/example-detail/example-detail';
 import { ConfigService } from '../services/configService';
-import { FavoritePage } from '../pages/favorite/favorite'
-
+import { FavoritePage } from '../pages/favorite/favorite';
+import { PoemPage } from '../pages/poem/poem';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { FavoritePage } from '../pages/favorite/favorite'
     ContactUsPage,
     ExamplePagePage,
     ExampleDetailPage,
-    FavoritePage
+    FavoritePage,
+    PoemPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -36,8 +37,9 @@ import { FavoritePage } from '../pages/favorite/favorite'
     ContactUsPage,
     ExamplePagePage,
     ExampleDetailPage,
-    FavoritePage
+    FavoritePage,
+    PoemPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ConfigService]
+  providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, ConfigService]
 })
-export class AppModule {}
+export class AppModule { }

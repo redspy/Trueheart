@@ -7,6 +7,7 @@ import { Page2 } from '../pages/page2/page2';
 import { ContactUsPage } from '../pages/contact-us/contact-us'
 import { ExamplePagePage } from '../pages/example-page/example-page'
 import { FavoritePage } from '../pages/favorite/favorite'
+import { PoemPage } from '../pages/poem/poem'
 
 @Component({
   templateUrl: 'app.html'
@@ -14,9 +15,9 @@ import { FavoritePage } from '../pages/favorite/favorite'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ExamplePagePage;
+  rootPage: any = PoemPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
@@ -24,10 +25,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     // Left Menu Page title Name(by wonik)
     this.pages = [
-      { title: '씨, 발아한다', component: ExamplePagePage},
+      { title: '씨, 발', component: PoemPage },
+      { title: '씨, 발아한다', component: ExamplePagePage },
       // { title: 'Page One', component: Page1 },
       // { title: 'Page Two', component: Page2 },
-      { title: '즐겨찾기', component: FavoritePage},
+      { title: '즐겨찾기', component: FavoritePage },
       { title: 'Contact Us', component: ContactUsPage }
     ];
 

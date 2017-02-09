@@ -26,4 +26,13 @@ export class ConfigService {
         var favorites = JSON.parse(this.localStorageService.get<string>('favorites')) || {};
         return favorites[id] || false;
     }
+
+    getLastPosition(): number {
+        return this.localStorageService.get<number>('LastPosition');
+    }
+
+    setLastPosition(position: number) {
+        this.localStorageService.set('LastPosition', position);
+    }
+
 }
