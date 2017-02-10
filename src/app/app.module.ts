@@ -10,6 +10,7 @@ import { ExampleDetailPage } from '../pages/example-detail/example-detail';
 import { ConfigService } from '../services/configService';
 import { FavoritePage } from '../pages/favorite/favorite';
 import { PoemPage } from '../pages/poem/poem';
+import { AuthorIntroductionPage} from '../pages/author-introduction/author-introduction';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PoemPage } from '../pages/poem/poem';
     ExamplePagePage,
     ExampleDetailPage,
     FavoritePage,
-    PoemPage
+    PoemPage,
+    AuthorIntroductionPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -38,7 +40,8 @@ import { PoemPage } from '../pages/poem/poem';
     ExamplePagePage,
     ExampleDetailPage,
     FavoritePage,
-    PoemPage
+    PoemPage,
+    AuthorIntroductionPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, ConfigService]
 })

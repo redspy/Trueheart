@@ -8,6 +8,7 @@ import { ContactUsPage } from '../pages/contact-us/contact-us'
 import { ExamplePagePage } from '../pages/example-page/example-page'
 import { FavoritePage } from '../pages/favorite/favorite'
 import { PoemPage } from '../pages/poem/poem'
+import { AuthorIntroductionPage} from '../pages/author-introduction/author-introduction'
 
 @Component({
   templateUrl: 'app.html'
@@ -30,6 +31,7 @@ export class MyApp {
       // { title: 'Page One', component: Page1 },
       // { title: 'Page Two', component: Page2 },
       { title: '즐겨찾기', component: FavoritePage },
+      { title: '저자 소개', component: AuthorIntroductionPage },
       { title: 'Contact Us', component: ContactUsPage }
     ];
 
