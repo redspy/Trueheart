@@ -25,15 +25,15 @@
   <ion-toolbar>
     <ion-buttons end>
     <button icon-only style="background : transparent" (click)="changeFontSize('up')">
-      <ion-icon name="add"></ion-icon>
+      <ion-icon name="add" style="text-shadow: 1px 1px 1px #000"></ion-icon>
     </button>
     <button icon-only style="background : transparent" (click)="changeFontSize('down')">
-      <ion-icon name="remove"></ion-icon>
+      <ion-icon name="remove" style="text-shadow: 1px 1px 1px #000"></ion-icon>
     </button>
     </ion-buttons>
     <ion-buttons end>
     <button icon-only rignt (click)="toggleFavorite()" style="background : transparent">
-      <ion-icon name="star" [ngClass]="{'favorite': favorite}"></ion-icon>
+      <ion-icon name="star" [ngClass]="{'favorite': favorite}" style="text-shadow: 1px 1px 1px #000"></ion-icon>
     </button>
     </ion-buttons>
   </ion-toolbar>
