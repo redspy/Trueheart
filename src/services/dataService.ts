@@ -40,8 +40,16 @@ export class DataService {
                 image: this.images[Math.floor(Math.random() * this.images.length)]
             });
         }
+        
     }
 
+    getIndexbyID(id: string): number {
+        return this.items.indexOf(this.items.find(myObj => myObj.id == id));
+    }
+
+    getIDbyIndex(index: number): string {
+        return this.items[index].id;
+    }
     getTitlebyIndex(index: number): string {
         return this.items[index].title;
     }
@@ -51,6 +59,9 @@ export class DataService {
     }
     getImagebyIndex(index: number): string {
         return this.items[index].image;
+    }
+    getMaxCount(): number {
+        return this.items.length;
     }
 
 }

@@ -24,36 +24,13 @@ export class PoemPage {
   fontSize: any;
   favorite: boolean;
   viewLoaded: boolean;
+  onChangeData: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private configService: ConfigService, private dataService: DataService) {
-    this.images = ['assets/img/pocket-watch-2036304_1920.jpg',
-      'assets/img/european-eagle-owl-2010346_1280.jpg',
-      'assets/img/orange-1995056_1280.jpg',
-      'assets/img/white-tailed-eagle-2015098_640.jpg',
-      'assets/img/skyscraper-1893201_640.jpg',
-      'assets/img/sunrise-1756274_640.jpg',
-      'assets/img/bullion-1744773_640.jpg',
-      'assets/img/theater-1713816_640.jpg',
-      'assets/img/sun-1654458_640.jpg',
-      'assets/img/ring-1692713_640.jpg',
-      'assets/img/wallpaper-1492818_640.jpg',
-      'assets/img/children-1639420_640.jpg',
-      'assets/img/background-1524540_640.jpg',
-      'assets/img/clock-1516967_640.png',
-      'assets/img/piano-keys-1090984_640.jpg',
-      'assets/img/clock-1392328_640.jpg',
-      'assets/img/flame-1363003_640.jpg',
-      'assets/img/snail-83672_640.jpg',
-      'assets/img/abstract-1231889_640.jpg',
-      'assets/img/fractal-1128622_640.jpg',
-      'assets/img/landscape-982178_640.jpg',
-      'assets/img/glass-1206584_640.jpg',
-      'assets/img/tree-51358_640.png',
-      'assets/img/panorama-1993645_1280.jpg'];
+    this.itemAssign(0);
 
-    this.itemAssign();
     if (configService.getLastPosition() != 0) {
-      this.alectContinue();
+      //this.alectContinue();
     }
     this.fontSize = configService.getFontSize();
     this.fontSizeString = this.fontSize + 'rem';
@@ -62,6 +39,7 @@ export class PoemPage {
     //this.favorite = configService.getFavorite(this.slides.getActiveIndex().toString());
     this.favorite = false;
     this.viewLoaded = false;
+    this.onChangeData = false;
   }
 
   alectContinue() {
@@ -94,7 +72,7 @@ export class PoemPage {
   }
 
   ngAfterViewInit() {
-    this.slides.effect = "cube";
+    // this.slides.effect = "cube";
     // this.slides.loop = true;
     // this.slides.parallax = true;
     // this.slides.paginationType = "bullets";
@@ -104,24 +82,52 @@ export class PoemPage {
     this.viewLoaded = true;
   }
 
-  itemAssign() {
+  itemAssign(currentIndex: number) {
     this.items = [];
 
-    for (let i = 0; i < data.poems.length; i++) {
+    let middleIndex = 0;
+    if (currentIndex == 0) {
+      middleIndex = 1;
+    }
+    else if (currentIndex == this.dataService.getMaxCount()) {
+      middleIndex = this.dataService.getMaxCount() - 1;
+    }
+    else {
+      middleIndex = currentIndex;
+    }
+    for (let i = -1; i < 2; i++) {
       this.items.push({
-        id: data.poems[i].id,
-        title: data.poems[i].title,
-        body: data.poems[i].body,
-        image: this.images[Math.floor(Math.random() * this.images.length)]
+        id: this.dataService.getIDbyIndex(middleIndex + i),
+        title: this.dataService.getTitlebyIndex(middleIndex + i),
+        body: this.dataService.getBodybyIndex(middleIndex + i),
+        image: ""
       });
     }
   }
   slideChanged() {
-    let currentIndex = this.slides.getActiveIndex();
-    this.menuTitle = this.items[currentIndex].title;
-    this.configService.setLastPosition(currentIndex);
-    this.favorite = this.configService.getFavorite(this.slides.getActiveIndex().toString());
-    console.log("Current index is", currentIndex);
+    if (this.onChangeData == false) {
+      this.onChangeData = true;
+      let currentIndex = this.slides.getActiveIndex();
+      this.menuTitle = this.items[currentIndex].title || "";
+      this.configService.setLastPosition(this.dataService.getIndexbyID(this.items[currentIndex].id));
+      this.favorite = this.configService.getFavorite(this.dataService.getIndexbyID(this.items[currentIndex].id).toString());
+
+      if (this.dataService.getIndexbyID(this.items[currentIndex].id) == 0) {
+        this.slides.slideTo(0, 0);
+
+      }
+      else if (this.dataService.getIndexbyID(this.items[currentIndex].id) == this.dataService.getMaxCount()) {
+        this.slides.slideTo(2, 0);
+      }
+      else {
+        this.slides.slideTo(1, 0);
+      }
+
+      this.itemAssign(this.dataService.getIndexbyID(this.items[currentIndex].id));
+      console.log("Current index is", currentIndex);
+      this.onChangeData = false;
+    }
+
   }
   changeFontSize(option: string) {
     if (option == 'up') {
@@ -136,7 +142,7 @@ export class PoemPage {
     this.configService.setFontSize(this.fontSize);
     console.log(this.fontSize);
   }
-  
+
   tapEvent(e) {
     if (this.viewLoaded) {
       this.footerShow = !this.footerShow;
