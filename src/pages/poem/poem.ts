@@ -92,7 +92,6 @@ export class PoemPage {
   }
 
   ngAfterViewInit() {
-    this.slides.zoom = true;
     // this.slides.slideTo(30, 2000, false);
   }
   ngAfterContentChecked() {
@@ -132,7 +131,7 @@ export class PoemPage {
     console.log(this.fontSize);
   }
   
-  tapEvent() {
+  tapEvent(e) {
     if (this.viewLoaded) {
       this.footerShow = !this.footerShow;
       this.favorite = this.configService.getFavorite(this.slides.getActiveIndex().toString());
