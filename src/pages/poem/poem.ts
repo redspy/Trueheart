@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController } from 'ionic-angular';
 import data from '../../assets/data/mydata.json';
 import { ConfigService } from '../../services/configService';
+import { DataService } from '../../services/dataService';
+
 /*
   Generated class for the Poem page.
 
@@ -23,7 +25,7 @@ export class PoemPage {
   favorite: boolean;
   viewLoaded: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private configService: ConfigService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private configService: ConfigService, private dataService: DataService) {
     this.images = ['assets/img/pocket-watch-2036304_1920.jpg',
       'assets/img/european-eagle-owl-2010346_1280.jpg',
       'assets/img/orange-1995056_1280.jpg',
@@ -92,6 +94,10 @@ export class PoemPage {
   }
 
   ngAfterViewInit() {
+    this.slides.effect = "cube";
+    // this.slides.loop = true;
+    // this.slides.parallax = true;
+    // this.slides.paginationType = "bullets";
     // this.slides.slideTo(30, 2000, false);
   }
   ngAfterContentChecked() {
