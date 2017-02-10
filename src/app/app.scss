@@ -34,16 +34,24 @@
   }
 }
 
-.toolbar-background-md {
-  border-color: #b2b2b2;
-  background: #386A6B;
+ion-header {
+  .toolbar-background {
+    border-color: #b2b2b2;
+    background: #386A6B;
+  }
+  .toolbar-title {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+  }
 }
 
-.toolbar-title-md {
-  padding: 0 12px;
-  font-size: 2rem;
-  font-weight: 500;
-  color: #fff;
+ion-footer {
+  .toolbar-background {
+    background: black;
+    opacity: 0.5;
+  }
 }
 
 ion-icon {
@@ -65,12 +73,12 @@ ion-icon {
   font-family: '문체부 궁체 흘림체';
   src: url('../assets/font/moon1.ttf') format("ttf");
   font-weight: normal;
-  font-style: normal; 
+  font-style: normal;
 }
 
 @font-face {
   font-family: '문체부 쓰기 흘림체';
   src: url('../assets/font/moon2.ttf') format("ttf");
   font-weight: normal;
-  font-style: normal; 
+  font-style: normal;
 }
