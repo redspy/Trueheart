@@ -5,36 +5,62 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar *ngIf="footerShow" >
+  <ion-navbar *ngIf="footerShow">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title style="font-family: 'NanumMyeongjo'; font-weight : bold">{{menuTitle}}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content (tap)="tapEvent()">
-  <ion-slides (ionSlideDidChange)="slideChanged()">
+<ion-content>
+  <ion-slides (ionSlideDidChange)="slideChanged()" (tap)="tapEvent()">
     <ion-slide *ngFor="let item of items">
       <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
         {{item.body}}
       </div>
     </ion-slide>
   </ion-slides>
+  <ion-fab right bottom *ngIf="footerShow" style="opacity: 0.6; margin-bottom: 60px !important">
+    <button ion-fab color="dark"><ion-icon name="menu"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab (click)="changeFontSize('down')" color="dark"><ion-icon name="remove"></ion-icon></button>
+      <button ion-fab (click)="changeFontSize('up')" color="dark"><ion-icon name="add"></ion-icon></button>
+      <button ion-fab (click)="toggleFavorite()" color="dark"><ion-icon name="star" [ngClass]="{'favorite': favorite}"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>
-<ion-footer *ngIf="footerShow" style="opacity: 0.7">
-  <ion-toolbar>
-    <ion-buttons end>
-    <button icon-only style="background : transparent" (click)="changeFontSize('up')">
+
+<ion-footer *ngIf="footerShow" style="opacity: 0.7;background-color: black !important">
+  <ion-grid>
+    <ion-row>
+      <ion-col width-80>
+        <ion-range pin="true" style="z-index: 0 !important; padding: 0px;height: 25px !important; margin-left: 5px !important">
+        </ion-range>
+
+      </ion-col>
+      <ion-col width-20>
+        <ion-buttons end>
+          <button icon-only style="background : transparent" (click)="changeFontSize('up')">
+        <ion-icon name="menu" style="text-shadow: 1px 1px 1px #000"></ion-icon>
+      </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!--<ion-buttons end>
+      <button icon-only style="background : transparent" (click)="changeFontSize('up')">
       <ion-icon name="add" style="text-shadow: 1px 1px 1px #000"></ion-icon>
     </button>
-    <button icon-only style="background : transparent" (click)="changeFontSize('down')">
+      <button icon-only style="background : transparent" (click)="changeFontSize('down')">
       <ion-icon name="remove" style="text-shadow: 1px 1px 1px #000"></ion-icon>
     </button>
     </ion-buttons>
     <ion-buttons end>
-    <button icon-only rignt (click)="toggleFavorite()" style="background : transparent">
+      <button icon-only rignt (click)="toggleFavorite()" style="background : transparent">
       <ion-icon name="star" [ngClass]="{'favorite': favorite}" style="text-shadow: 1px 1px 1px #000"></ion-icon>
     </button>
-    </ion-buttons>
-  </ion-toolbar>
+    </ion-buttons>-->
+
 </ion-footer>
