@@ -17,6 +17,7 @@
   <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
   <allow-navigation href="http://ionic.local/*"/>
+  <allow-navigation href="http://172.30.1.56:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>

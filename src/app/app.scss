@@ -68,6 +68,42 @@ ion-icon {
   speak: none;
   color: #fff;
 }
+.leftMenuContent {
+  background-color:#386A6B;
+  text-align: center;
+
+  .author-img {
+    border-radius: 50%;
+    width: 80%;
+    padding: 5%;
+    padding-bottom: 0;
+  }
+  .author-profile {
+    color: #fff;
+    font-family: 'NanumMyeongjo';
+    line-height: 1.6;
+  } 
+  .author-name {
+    text-align: right;
+    color: #fff;
+    font-weight: bold;
+    padding-right: 20px;
+
+    .name {
+      display: inline-block;
+    }
+    .sns-link {
+      display:inline-block;
+      width: 20px;
+      vertical-align: middle;
+    }
+  }
+
+  button.item-md {
+    background-color:#386A6B;
+    color: #fff;
+  }
+}
 
 @font-face {
   font-family: "NanumMyeongjo";

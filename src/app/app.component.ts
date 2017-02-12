@@ -1,11 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
-import { ContactUsPage } from '../pages/contact-us/contact-us'
-import { ExamplePagePage } from '../pages/example-page/example-page'
+import { StatusBar, Splashscreen, AppAvailability, Device } from 'ionic-native';
 import { FavoritePage } from '../pages/favorite/favorite'
 import { PoemPage } from '../pages/poem/poem'
-import { AuthorIntroductionPage} from '../pages/author-introduction/author-introduction'
 
 @Component({
   templateUrl: 'app.html'
@@ -24,10 +21,7 @@ export class MyApp {
     // Left Menu Page title Name(by wonik)
     this.pages = [
       { title: '씨, 발', component: PoemPage },
-      { title: '씨, 발아한다', component: ExamplePagePage },
-      { title: '즐겨찾기', component: FavoritePage },
-      { title: '저자 소개', component: AuthorIntroductionPage },
-      { title: 'Contact Us', component: ContactUsPage }
+      { title: '즐겨찾기', component: FavoritePage }
     ];
 
   }

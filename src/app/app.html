@@ -5,7 +5,22 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content class="leftMenuContent">
+    <img class="author-img" src="../assets/img/author-face.jpg">
+    <p class="author-profile">
+      두번의 디스크 재발과<br/>
+      한번의 디스크 수술<br/>
+      두번의 기흉 재발과<br/>
+      한번의 기흉 수슬<br/>
+<br/>
+      그리고 현재 <br/>
+      요로결석 약 복용중<br/>
+    </p>
+    <p class="author-name">
+      <span class="name">성현(成鉉)</span>
+    <a href="https://www.instagram.com/he11o_stranger/"><img src="../assets/img/sns-instagram.png" class="sns-link"></a>
+    <a href="http://facebook.com/ooodeng"><img src="../assets/img/sns-facebook.png" class="sns-link"></a>
+    </p>
     <ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
