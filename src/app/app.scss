@@ -70,15 +70,8 @@ ion-icon {
 }
 
 @font-face {
-  font-family: '문체부 궁체 흘림체';
-  src: url('../assets/font/moon1.ttf') format("ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: '문체부 쓰기 흘림체';
-  src: url('../assets/font/moon2.ttf') format("ttf");
+  font-family: "NanumMyeongjo";
+  src: url("../assets/fonts/NanumMyeongjo.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }

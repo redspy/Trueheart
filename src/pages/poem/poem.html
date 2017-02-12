@@ -9,13 +9,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title style="font-family: 문체부 궁체 흘림체; font-weight : bold">{{menuTitle}}</ion-title>
+    <ion-title style="font-family: 'NanumMyeongjo'; font-weight : bold">{{menuTitle}}</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content (tap)="tapEvent()">
   <ion-slides (ionSlideDidChange)="slideChanged()">
     <ion-slide *ngFor="let item of items">
-      <div text-center class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 문체부 궁체 흘림체; line-height: 1.6">
+      <div text-center class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6">
         {{item.body}}
       </div>
     </ion-slide>
