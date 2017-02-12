@@ -1,6 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController } from 'ionic-angular';
-import data from '../../assets/data/mydata.json';
 import { ConfigService } from '../../services/configService';
 import { DataService } from '../../services/dataService';
 
@@ -72,7 +71,7 @@ export class PoemPage {
   }
 
   ngAfterViewInit() {
-    // this.slides.effect = "cube";
+    this.slides.speed = 0;
     // this.slides.loop = true;
     // this.slides.parallax = true;
     // this.slides.paginationType = "bullets";

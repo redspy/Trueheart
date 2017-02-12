@@ -34,7 +34,7 @@ export class DataService {
             'assets/img/panorama-1993645_1280.jpg'];
         for (let i = 0; i < data.poems.length; i++) {
             this.items.push({
-                id: data.poems[i].id,
+                id: i.toString(),// data.poems[i].id,
                 title: data.poems[i].title,
                 body: data.poems[i].body,
                 image: this.images[Math.floor(Math.random() * this.images.length)]
