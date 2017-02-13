@@ -95,8 +95,9 @@ export class PoemPage {
       else {
         this.currentPage = 0;
       }
-      this.currentPage = 0;
-      this.itemAssign(this.currentPage);
+
+      //this.itemAssign(this.currentPage);
+      this.slideChanged(null);
     }, 1000);
 
   }
@@ -138,20 +139,23 @@ export class PoemPage {
   slideChanged(e) {
     if (this.onChangeData == false) {
       this.onChangeData = true;
-      let currentIndex = this.slides.getActiveIndex();
 
-      if (currentIndex == 0) {
-        this.currentPage = this.currentPage - 1;
-      }
-      else if (currentIndex == 2) {
-        this.currentPage = this.currentPage + 1;
-      }
-      else if (currentIndex == 1) {
-        if (this.currentPage == 0 && (e)) {
+
+      if (e) {
+        let currentIndex = this.slides.getActiveIndex();
+        if (currentIndex == 0) {
+          this.currentPage = this.currentPage - 1;
+        }
+        else if (currentIndex == 2) {
           this.currentPage = this.currentPage + 1;
         }
-        else if (this.currentPage == this.maxPage && (e)) {
-          this.currentPage = this.currentPage - 1;
+        else if (currentIndex == 1) {
+          if (this.currentPage == 0) {
+            this.currentPage = this.currentPage + 1;
+          }
+          else if (this.currentPage == this.maxPage) {
+            this.currentPage = this.currentPage - 1;
+          }
         }
       }
 
@@ -167,7 +171,6 @@ export class PoemPage {
       this.configService.setLastPosition(this.currentPage);
 
       this.itemAssign(this.currentPage);
-      console.log("Current index is", currentIndex);
       this.onChangeData = false;
     }
 
