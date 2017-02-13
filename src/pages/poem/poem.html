@@ -13,12 +13,27 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-slides (ionSlideDidChange)="slideChanged()" (tap)="tapEvent()">
-    <ion-slide *ngFor="let item of items">
+  <ion-slides (ionSlideDidChange)="slideChanged('fromUI')" (tap)="tapEvent()">
+    <!--<ion-slide *ngFor="let item of items">
       <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
         {{item.body}}
       </div>
+    </ion-slide>-->
+    <ion-slide>
+      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
+        {{previewBody}}
+      </div>
     </ion-slide>
+    <ion-slide>
+      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
+        {{focusBody}}
+      </div>
+    </ion-slide>    
+    <ion-slide>
+      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
+        {{nextBody}}
+      </div>
+    </ion-slide>    
   </ion-slides>
   <ion-fab right bottom *ngIf="footerShow" style="opacity: 0.6; margin-bottom: 60px !important">
     <button ion-fab color="dark"><ion-icon name="menu"></ion-icon></button>
@@ -34,7 +49,7 @@
   <ion-grid>
     <ion-row>
       <ion-col width-80>
-        <ion-range pin="true" style="z-index: 0 !important; padding: 0px;height: 25px !important; margin-left: 5px !important">
+        <ion-range [(ngModel)]="currentPage" (ionChange)="pageChange($event)" pin="true" style="z-index: 0 !important; padding: 0px;height: 25px !important; margin-left: 5px !important" min="0" max="{{maxPage}}" step="1">
         </ion-range>
 
       </ion-col>

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides, AlertController } from 'ionic-angular';
+import { NavController, NavParams, Slides, AlertController, LoadingController } from 'ionic-angular';
 import { ConfigService } from '../../services/configService';
 import { DataService } from '../../services/dataService';
 
@@ -24,21 +24,34 @@ export class PoemPage {
   favorite: boolean;
   viewLoaded: boolean;
   onChangeData: boolean;
+  previewBody: string;
+  focusBody: string;
+  nextBody: string;
+  currentPage: number;
+  maxPage: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private configService: ConfigService, private dataService: DataService) {
-    this.itemAssign(0);
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    private alertCtrl: AlertController,
+    private configService: ConfigService,
+    private dataService: DataService,
+    public loadingCtrl: LoadingController) {
 
-    if (configService.getLastPosition() != 0) {
-      //this.alectContinue();
-    }
+    this.previewBody = "";
+    this.focusBody = "";
+    this.nextBody = "";
+
+
+
     this.fontSize = configService.getFontSize();
     this.fontSizeString = this.fontSize + 'rem';
-    this.menuTitle = this.items[0].title;
+
     this.footerShow = false;
     //this.favorite = configService.getFavorite(this.slides.getActiveIndex().toString());
     this.favorite = false;
     this.viewLoaded = false;
     this.onChangeData = false;
+    this.maxPage = dataService.getMaxCount() - 1;
   }
 
   alectContinue() {
@@ -68,6 +81,24 @@ export class PoemPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PoemPage');
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+
+    loading.present();
+
+    setTimeout(() => {
+      loading.dismiss();
+      if (this.configService.getLastPosition() != 0) {
+        this.currentPage = this.configService.getLastPosition();
+      }
+      else {
+        this.currentPage = 0;
+      }
+      this.currentPage = 0;
+      this.itemAssign(this.currentPage);
+    }, 1000);
+
   }
 
   ngAfterViewInit() {
@@ -76,53 +107,66 @@ export class PoemPage {
     // this.slides.parallax = true;
     // this.slides.paginationType = "bullets";
     // this.slides.slideTo(30, 2000, false);
+
+
   }
   ngAfterContentChecked() {
     this.viewLoaded = true;
+
+    //this.menuTitle = this.items[0].title;
   }
 
   itemAssign(currentIndex: number) {
-    this.items = [];
-
     let middleIndex = 0;
     if (currentIndex == 0) {
       middleIndex = 1;
     }
-    else if (currentIndex == this.dataService.getMaxCount()) {
-      middleIndex = this.dataService.getMaxCount() - 1;
+    else if (currentIndex == this.maxPage) {
+      middleIndex = this.maxPage - 1;
     }
     else {
       middleIndex = currentIndex;
     }
-    for (let i = -1; i < 2; i++) {
-      this.items.push({
-        id: this.dataService.getIDbyIndex(middleIndex + i),
-        title: this.dataService.getTitlebyIndex(middleIndex + i),
-        body: this.dataService.getBodybyIndex(middleIndex + i),
-        image: ""
-      });
-    }
+    this.previewBody = this.dataService.getBodybyIndex(middleIndex - 1);
+    this.focusBody = this.dataService.getBodybyIndex(middleIndex);
+    this.nextBody = this.dataService.getBodybyIndex(middleIndex + 1);
+
+    this.menuTitle = this.dataService.getTitlebyIndex(this.currentPage);
+    this.favorite = this.configService.getFavorite(this.currentPage.toString());
   }
-  slideChanged() {
+
+  slideChanged(e) {
     if (this.onChangeData == false) {
       this.onChangeData = true;
       let currentIndex = this.slides.getActiveIndex();
-      this.menuTitle = this.items[currentIndex].title || "";
-      this.configService.setLastPosition(this.dataService.getIndexbyID(this.items[currentIndex].id));
-      this.favorite = this.configService.getFavorite(this.dataService.getIndexbyID(this.items[currentIndex].id).toString());
 
-      if (this.dataService.getIndexbyID(this.items[currentIndex].id) == 0) {
-        this.slides.slideTo(0, 0);
-
+      if (currentIndex == 0) {
+        this.currentPage = this.currentPage - 1;
       }
-      else if (this.dataService.getIndexbyID(this.items[currentIndex].id) == this.dataService.getMaxCount()) {
+      else if (currentIndex == 2) {
+        this.currentPage = this.currentPage + 1;
+      }
+      else if (currentIndex == 1){
+        if (this.currentPage == 0 && (e)) {
+          this.currentPage = this.currentPage + 1;  
+        }
+        else if (this.currentPage == this.maxPage && (e)) {
+          this.currentPage = this.currentPage - 1;
+        }
+      }
+
+      if (this.currentPage == 0) {
+        this.slides.slideTo(0, 0);
+      }
+      else if (this.currentPage == this.maxPage) {
         this.slides.slideTo(2, 0);
       }
       else {
         this.slides.slideTo(1, 0);
       }
+      this.configService.setLastPosition(this.currentPage);
 
-      this.itemAssign(this.dataService.getIndexbyID(this.items[currentIndex].id));
+      this.itemAssign(this.currentPage);
       console.log("Current index is", currentIndex);
       this.onChangeData = false;
     }
@@ -149,8 +193,17 @@ export class PoemPage {
     }
   }
 
+  pageChange(e) {
+    this.currentPage = e.value;
+    this.slideChanged(null);
+  }
+
   toggleFavorite() {
     this.favorite = !this.favorite;
     this.configService.setFavorite(this.items[this.slides.getActiveIndex()].id, this.favorite);
+  }
+
+  updatePage() {
+
   }
 }
