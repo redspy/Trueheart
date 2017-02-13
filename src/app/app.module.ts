@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { ExamplePagePage } from '../pages/example-page/example-page';
 import { ExampleDetailPage } from '../pages/example-detail/example-detail';
+import { ContentsPage} from '../pages/contents/contents';
 import { ConfigService } from '../services/configService';
 import { FavoritePage } from '../pages/favorite/favorite';
 import { PoemPage } from '../pages/poem/poem';
@@ -19,7 +20,8 @@ import { DataService } from '../services/dataService'
     ExampleDetailPage,
     FavoritePage,
     PoemPage,
-    AuthorIntroductionPage
+    AuthorIntroductionPage,
+    ContentsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -36,7 +38,8 @@ import { DataService } from '../services/dataService'
     ExampleDetailPage,
     FavoritePage,
     PoemPage,
-    AuthorIntroductionPage
+    AuthorIntroductionPage,
+    ContentsPage
   ],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }, ConfigService, DataService]
 })

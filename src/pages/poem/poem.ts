@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController, LoadingController } from 'ionic-angular';
 import { ConfigService } from '../../services/configService';
 import { DataService } from '../../services/dataService';
-
+import { ContentsPage } from '../../pages/contents/contents'
 /*
   Generated class for the Poem page.
 
@@ -146,9 +146,9 @@ export class PoemPage {
       else if (currentIndex == 2) {
         this.currentPage = this.currentPage + 1;
       }
-      else if (currentIndex == 1){
+      else if (currentIndex == 1) {
         if (this.currentPage == 0 && (e)) {
-          this.currentPage = this.currentPage + 1;  
+          this.currentPage = this.currentPage + 1;
         }
         else if (this.currentPage == this.maxPage && (e)) {
           this.currentPage = this.currentPage - 1;
@@ -203,7 +203,7 @@ export class PoemPage {
     this.configService.setFavorite(this.items[this.slides.getActiveIndex()].id, this.favorite);
   }
 
-  updatePage() {
-
+  showContents() {
+    this.navCtrl.push(ContentsPage);
   }
 }
