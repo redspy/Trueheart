@@ -5,14 +5,15 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>목차</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content style="padding-left: 30%">
+  <ion-list has-bouncing="true">
+    <ion-card ion-item *ngFor="let title of titleList" (click)="selectPoem(title)">
+      <div class="card-title">{{title}}</div>
+    </ion-card>
+  </ion-list>
 </ion-content>

@@ -64,4 +64,8 @@ export class DataService {
         return this.items.length;
     }
 
+    getIndexbyTitle(title: string): number {
+        return this.items.indexOf(this.items.find(myObj => myObj.title == title));
+    }
+
 }

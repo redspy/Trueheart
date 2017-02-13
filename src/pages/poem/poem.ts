@@ -206,6 +206,10 @@ export class PoemPage {
   }
 
   showContents() {
-    this.navCtrl.push(ContentsPage);
+    this.navCtrl.push(ContentsPage, this);
+  }
+
+  popContents() {
+
   }
 }
