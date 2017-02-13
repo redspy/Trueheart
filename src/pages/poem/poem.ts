@@ -192,7 +192,6 @@ export class PoemPage {
   tapEvent(e) {
     if (this.viewLoaded) {
       this.footerShow = !this.footerShow;
-      this.favorite = this.configService.getFavorite(this.slides.getActiveIndex().toString());
     }
   }
 
@@ -203,7 +202,7 @@ export class PoemPage {
 
   toggleFavorite() {
     this.favorite = !this.favorite;
-    this.configService.setFavorite(this.items[this.slides.getActiveIndex()].id, this.favorite);
+    this.configService.setFavorite(this.currentPage.toString(), this.favorite);
   }
 
   showContents() {
