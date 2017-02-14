@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../services/dataService';
-import { PoemPage } from '../../pages/poem/poem'
+
 /*
   Generated class for the Contents page.
 
@@ -31,10 +31,8 @@ export class ContentsPage {
   }
 
   selectPoem(page) {
-    //this.poemPage.currentPage = this.dataService.getIndexbyTitle(page);
     this.navParams.data.currentPage = this.dataService.getIndexbyTitle(page);
     this.navParams.data.slideChanged(null);
     this.navCtrl.pop();
   }
-
 }

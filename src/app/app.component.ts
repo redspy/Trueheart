@@ -20,8 +20,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     // Left Menu Page title Name(by wonik)
     this.pages = [
-      { title: '씨, 발', component: PoemPage },
-      { title: '즐겨찾기', component: FavoritePage }
+      { title: '씨, 발아한다', component: PoemPage },
+      { title: '책갈피', component: FavoritePage }
     ];
 
   }

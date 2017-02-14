@@ -36,11 +36,11 @@
     </ion-slide>    
   </ion-slides>
   <ion-fab right bottom *ngIf="footerShow" style="opacity: 0.6; margin-bottom: 60px !important">
-    <button ion-fab color="dark"><ion-icon name="build"></ion-icon></button>
+    <button ion-fab color="dark"><ion-icon name="more"></ion-icon></button>
     <ion-fab-list side="top">
       <button ion-fab (click)="changeFontSize('down')" color="dark"><ion-icon name="remove"></ion-icon></button>
       <button ion-fab (click)="changeFontSize('up')" color="dark"><ion-icon name="add"></ion-icon></button>
-      <button ion-fab (click)="toggleFavorite()" color="dark"><ion-icon name="star" [ngClass]="{'favorite': favorite}"></ion-icon></button>
+      <button ion-fab (click)="toggleFavorite()" color="dark"><ion-icon name="bookmark" [ngClass]="{'favorite': favorite}"></ion-icon></button>
     </ion-fab-list>
   </ion-fab>
 </ion-content>
@@ -56,7 +56,7 @@
       <ion-col width-20>
         <ion-buttons end>
           <button icon-only style="background : transparent" (click)="showContents()">
-        <ion-icon name="menu" style="text-shadow: 1px 1px 1px #000"></ion-icon>
+        <ion-icon name="list-box" style="text-shadow: 1px 1px 1px #000"></ion-icon>
       </button>
         </ion-buttons>
       </ion-col>

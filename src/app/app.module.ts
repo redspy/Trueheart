@@ -3,8 +3,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { MyApp } from './app.component';
 import { ContactUsPage } from '../pages/contact-us/contact-us';
-import { ExamplePagePage } from '../pages/example-page/example-page';
-import { ExampleDetailPage } from '../pages/example-detail/example-detail';
+// import { ExamplePagePage } from '../pages/example-page/example-page';
+// import { ExampleDetailPage } from '../pages/example-detail/example-detail';
 import { ContentsPage} from '../pages/contents/contents';
 import { ConfigService } from '../services/configService';
 import { FavoritePage } from '../pages/favorite/favorite';
@@ -16,8 +16,8 @@ import { DataService } from '../services/dataService'
   declarations: [
     MyApp,
     ContactUsPage,
-    ExamplePagePage,
-    ExampleDetailPage,
+    // ExamplePagePage,
+    // ExampleDetailPage,
     FavoritePage,
     PoemPage,
     AuthorIntroductionPage,
@@ -34,8 +34,8 @@ import { DataService } from '../services/dataService'
   entryComponents: [
     MyApp,
     ContactUsPage,
-    ExamplePagePage,
-    ExampleDetailPage,
+    // ExamplePagePage,
+    // ExampleDetailPage,
     FavoritePage,
     PoemPage,
     AuthorIntroductionPage,
