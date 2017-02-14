@@ -15,19 +15,13 @@
 <ion-content>
   <ion-slides (ionSlideDidChange)="slideChanged('fromUI')" (tap)="tapEvent()" id="poemContainer">
     <ion-slide>
-      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">
-        {{previewBody}}
-      </div>
+      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">{{previewBody}}</div>
     </ion-slide>
     <ion-slide>
-      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">
-        {{focusBody}}
-      </div>
+      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">{{focusBody}}</div>
     </ion-slide>    
     <ion-slide>
-      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">
-        {{nextBody}}
-      </div>
+      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">{{nextBody}}</div>
     </ion-slide>    
   </ion-slides>
   <ion-fab right bottom *ngIf="footerShow" style="opacity: 0.6; margin-bottom: 60px !important">
