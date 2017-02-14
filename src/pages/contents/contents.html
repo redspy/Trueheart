@@ -6,14 +6,14 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>목차</ion-title>
+    <ion-title style="font-family: 'NanumMyeongjo'; font-weight : bold">목차</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list has-bouncing="true">
     <ion-card ion-item *ngFor="let title of titleList" (click)="selectPoem(title)">
-      <div class="card-title">{{title}}</div>
+      <div class="card-title" style="font-family: 'NanumMyeongjo'; font-weight : bold">{{title}}</div>
     </ion-card>
   </ion-list>
 </ion-content>

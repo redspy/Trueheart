@@ -14,11 +14,6 @@
 </ion-header>
 <ion-content>
   <ion-slides (ionSlideDidChange)="slideChanged('fromUI')" (tap)="tapEvent()">
-    <!--<ion-slide *ngFor="let item of items">
-      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
-        {{item.body}}
-      </div>
-    </ion-slide>-->
     <ion-slide>
       <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
         {{previewBody}}
@@ -62,20 +57,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
-  <!--<ion-buttons end>
-      <button icon-only style="background : transparent" (click)="changeFontSize('up')">
-      <ion-icon name="add" style="text-shadow: 1px 1px 1px #000"></ion-icon>
-    </button>
-      <button icon-only style="background : transparent" (click)="changeFontSize('down')">
-      <ion-icon name="remove" style="text-shadow: 1px 1px 1px #000"></ion-icon>
-    </button>
-    </ion-buttons>
-    <ion-buttons end>
-      <button icon-only rignt (click)="toggleFavorite()" style="background : transparent">
-      <ion-icon name="star" [ngClass]="{'favorite': favorite}" style="text-shadow: 1px 1px 1px #000"></ion-icon>
-    </button>
-    </ion-buttons>-->
-
 </ion-footer>

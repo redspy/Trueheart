@@ -1,7 +1,7 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>성현시집</ion-title>
+      <ion-title style="font-family: 'NanumMyeongjo'; font-weight : bold">성현시집</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -22,7 +22,7 @@
     <a href="http://facebook.com/ooodeng"><img src="assets/img/sns-facebook.png" class="sns-link"></a>
     </p>
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" style="font-family: 'NanumMyeongjo'; font-weight : bold">
         {{p.title}}
       </button>
     </ion-list>

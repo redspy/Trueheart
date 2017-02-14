@@ -32,7 +32,6 @@ export class PoemPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    private alertCtrl: AlertController,
     private configService: ConfigService,
     private dataService: DataService,
     public loadingCtrl: LoadingController) {
@@ -41,42 +40,14 @@ export class PoemPage {
     this.focusBody = "";
     this.nextBody = "";
 
-
-
     this.fontSize = configService.getFontSize();
     this.fontSizeString = this.fontSize + 'rem';
 
     this.footerShow = false;
-    //this.favorite = configService.getFavorite(this.slides.getActiveIndex().toString());
     this.favorite = false;
     this.viewLoaded = false;
     this.onChangeData = false;
     this.maxPage = dataService.getMaxCount() - 1;
-  }
-
-  alectContinue() {
-    let alert = this.alertCtrl.create({
-      title: '성현의 말씀',
-      message: '이전에 보던 페이지로 갈까요?',
-      buttons: [
-        {
-          text: '싫어',
-          role: 'cancel',
-          handler: () => {
-            // this.slides.slideTo(0, 2000, false);
-          }
-        },
-        {
-          text: '가자',
-          handler: () => {
-            this.slides.slideTo(this.configService.getLastPosition(), this.configService.getLastPosition() * 20, false);
-            let currentIndex = this.slides.getActiveIndex();
-            this.menuTitle = this.items[currentIndex].title;
-          }
-        }
-      ]
-    });
-    alert.present();
   }
 
   ionViewDidLoad() {
@@ -95,8 +66,6 @@ export class PoemPage {
       else {
         this.currentPage = 0;
       }
-
-      //this.itemAssign(this.currentPage);
       this.slideChanged(null);
     }, 1000);
 
@@ -104,17 +73,9 @@ export class PoemPage {
 
   ngAfterViewInit() {
     this.slides.speed = 0;
-    // this.slides.loop = true;
-    // this.slides.parallax = true;
-    // this.slides.paginationType = "bullets";
-    // this.slides.slideTo(30, 2000, false);
-
-
   }
   ngAfterContentChecked() {
     this.viewLoaded = true;
-
-    //this.menuTitle = this.items[0].title;
   }
 
   itemAssign(currentIndex: number) {
@@ -139,7 +100,6 @@ export class PoemPage {
   slideChanged(e) {
     if (this.onChangeData == false) {
       this.onChangeData = true;
-
 
       if (e) {
         let currentIndex = this.slides.getActiveIndex();
@@ -177,16 +137,17 @@ export class PoemPage {
   }
   changeFontSize(option: string) {
     if (option == 'up') {
-      this.fontSize = this.fontSize + 0.1;
-    } else {
+      if (this.fontSize < 4.0) {
+        this.fontSize = this.fontSize + 0.1;
+      }
+    }
+    else {
       if (this.fontSize > 1.0) {
         this.fontSize = this.fontSize - 0.1;
       }
     }
     this.fontSizeString = this.fontSize + 'rem';
-
     this.configService.setFontSize(this.fontSize);
-    console.log(this.fontSize);
   }
 
   tapEvent(e) {
@@ -207,9 +168,5 @@ export class PoemPage {
 
   showContents() {
     this.navCtrl.push(ContentsPage, this);
-  }
-
-  popContents() {
-
   }
 }
