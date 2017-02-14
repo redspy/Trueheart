@@ -3,7 +3,7 @@ import data from '../assets/data/mydata.json';
 
 @Injectable()
 export class DataService {
-    items: Array<{ id: string, title: string, body: string, image: string }>;
+    items: Array<{ id: string, title: string, body: string, align: string, image: string }>;
     images: string[];
 
     constructor() {
@@ -37,6 +37,7 @@ export class DataService {
                 id: i.toString(),// data.poems[i].id,
                 title: data.poems[i].title,
                 body: data.poems[i].body,
+                align: data.poems[i].align,
                 image: this.images[Math.floor(Math.random() * this.images.length)]
             });
         }
@@ -63,9 +64,11 @@ export class DataService {
     getMaxCount(): number {
         return this.items.length;
     }
-
     getIndexbyTitle(title: string): number {
         return this.items.indexOf(this.items.find(myObj => myObj.title == title));
+    }
+    getAlignbyIndex(index: number): string {
+        return this.items[index].align;
     }
 
 }

@@ -29,6 +29,7 @@ export class PoemPage {
   nextBody: string;
   currentPage: number;
   maxPage: number;
+  leftPosition: boolean;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -48,6 +49,7 @@ export class PoemPage {
     this.viewLoaded = false;
     this.onChangeData = false;
     this.maxPage = dataService.getMaxCount() - 1;
+    this.leftPosition = true;
   }
 
   ionViewDidLoad() {
@@ -95,6 +97,7 @@ export class PoemPage {
 
     this.menuTitle = this.dataService.getTitlebyIndex(this.currentPage);
     this.favorite = this.configService.getFavorite(this.currentPage.toString());
+    this.leftPosition = (this.dataService.getAlignbyIndex(this.currentPage) == 'left');
   }
 
   slideChanged(e) {

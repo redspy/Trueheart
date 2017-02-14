@@ -15,17 +15,17 @@
 <ion-content>
   <ion-slides (ionSlideDidChange)="slideChanged('fromUI')" (tap)="tapEvent()">
     <ion-slide>
-      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
+      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">
         {{previewBody}}
       </div>
     </ion-slide>
     <ion-slide>
-      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
+      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">
         {{focusBody}}
       </div>
     </ion-slide>    
     <ion-slide>
-      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6;text-align: left !important">
+      <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">
         {{nextBody}}
       </div>
     </ion-slide>    
