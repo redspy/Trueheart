@@ -10,18 +10,13 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>즐겨찾기</ion-title>
+    <ion-title>책갈피</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content class="card-background-page" has-bouncing="true">
+<ion-content>
   <ion-list has-bouncing="true">
-    <ion-card ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <img [src]="item.image" />
-      <div class="card-title" style="text-shadow: 1px 1px 1px #000">{{item.title}}</div>
-      <div class="card-subtitle">{{item.subtitle}}</div>
+    <ion-card ion-item *ngFor="let title of titleList" (click)="selectPoem(title)">
+      <div class="card-title">{{title}}</div>
     </ion-card>
   </ion-list>
 </ion-content>
