@@ -1,8 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav } from 'ionic-angular';
 import { NavController, NavParams } from 'ionic-angular';
 import { DataService } from '../../services/dataService';
 import { ConfigService } from '../../services/configService';
+import { PoemPage } from '../../pages/poem/poem';
 /*
   Generated class for the Favorite page.
 
@@ -14,7 +14,6 @@ import { ConfigService } from '../../services/configService';
   templateUrl: 'favorite.html'
 })
 export class FavoritePage {
-  @ViewChild(Nav) nav: Nav;
   titleList: any;
 
   constructor(public navCtrl: NavController, 
@@ -33,7 +32,8 @@ export class FavoritePage {
   }
 
   selectPoem(page) {
-
+    this.configService.setLastPosition(this.dataService.getIndexbyTitle(page));
+    this.navCtrl.setRoot(PoemPage);
   }
 
 }
