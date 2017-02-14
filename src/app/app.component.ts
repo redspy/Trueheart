@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen, AppAvailability, Device } from 'ionic-native';
+import { StatusBar, Splashscreen } from 'ionic-native';//, AppAvailability, Device } from 'ionic-native';
 import { FavoritePage } from '../pages/favorite/favorite'
 import { PoemPage } from '../pages/poem/poem'
 
