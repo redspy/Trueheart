@@ -42,6 +42,10 @@ export class PoemPage {
     this.nextBody = "";
 
     this.fontSize = configService.getFontSize();
+    if (this.fontSize <= 1.0 && this.fontSize >= 4.0) {
+      this.fontSize = 1.2;
+      this.configService.setFontSize(this.fontSize);
+    }
     this.fontSizeString = this.fontSize + 'rem';
 
     this.footerShow = false;
@@ -140,12 +144,12 @@ export class PoemPage {
   }
   changeFontSize(option: string) {
     if (option == 'up') {
-      if (this.fontSize < 4.0) {
+      if (this.fontSize <= 4.0) {
         this.fontSize = this.fontSize + 0.1;
       }
     }
     else {
-      if (this.fontSize > 1.0) {
+      if (this.fontSize >= 1.0) {
         this.fontSize = this.fontSize - 0.1;
       }
     }
