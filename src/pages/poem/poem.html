@@ -13,7 +13,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-slides (ionSlideDidChange)="slideChanged('fromUI')" (tap)="tapEvent()">
+  <ion-slides (ionSlideDidChange)="slideChanged('fromUI')" (tap)="tapEvent()" id="poemContainer">
     <ion-slide>
       <div class="body-string" [ngStyle]="{'font-size' : fontSizeString}" style="font-family: 'NanumMyeongjo'; line-height: 1.6" [ngClass]="{'left-position' : leftPosition}">
         {{previewBody}}

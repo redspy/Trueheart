@@ -111,3 +111,11 @@ ion-icon {
   font-weight: normal;
   font-style: normal;
 }
+
+
+#poemContainer {
+  .swiper-slide  {
+    align-items: flex-start;
+    overflow-y: scroll;
+  }
+}
