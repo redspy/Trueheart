@@ -66,7 +66,7 @@ export class PoemPage {
 
     setTimeout(() => {
       loading.dismiss();
-      if (this.configService.getLastPosition() > 0 && this.configService.getLastPosition() < this.maxPage) {
+      if (this.configService.getLastPosition() > 0 && this.configService.getLastPosition() <= this.maxPage) {
         this.currentPage = this.configService.getLastPosition();
       }
       else {
