@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, Slides, LoadingController } from 'ionic-angular';
 import { ConfigService } from '../../services/configService';
 import { DataService } from '../../services/dataService';
 import { ContentsPage } from '../../pages/contents/contents'
