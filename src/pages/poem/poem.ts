@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, Slides, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, Slides, LoadingController, Platform } from 'ionic-angular';
 import { ConfigService } from '../../services/configService';
 import { DataService } from '../../services/dataService';
-import { ContentsPage } from '../../pages/contents/contents'
+import { ContentsPage } from '../../pages/contents/contents';
+import { StatusBar, Splashscreen } from 'ionic-native';
 /*
   Generated class for the Poem page.
 
@@ -35,7 +36,8 @@ export class PoemPage {
     public navParams: NavParams,
     private configService: ConfigService,
     private dataService: DataService,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    public platform: Platform) {
 
     this.previewBody = "";
     this.focusBody = "";
@@ -56,10 +58,11 @@ export class PoemPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PoemPage');
+    
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
-
+    
     loading.present();
 
     setTimeout(() => {
@@ -71,7 +74,17 @@ export class PoemPage {
         this.currentPage = 0;
       }
       this.slideChanged(null);
+
+          this.platform.ready().then(() => {
+      // Okay, so the platform is ready and our plugins are available.
+      // Here you can do any higher level native things you might need.
+      StatusBar.styleDefault();
+      Splashscreen.hide();
+    });
+
     }, 1000);
+
+
 
   }
 

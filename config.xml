@@ -13,9 +13,10 @@
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashMaintainAspectRatio" value="true"/>
   <preference name="FadeSplashScreenDuration" value="300"/>
-  <preference name="SplashShowOnlyFirstTime" value="false"/>
+  <preference name="SplashShowOnlyFirstTime" value="true"/>
   <preference name="SplashScreen" value="screen"/>
-  <preference name="SplashScreenDelay" value="3000"/>
+  <preference name="SplashScreenDelay" value="1000"/>
+  <preference name="AutoHideSplashScreen" value="false" />
   <preference name="orientation" value="portrait"/>
   <allow-navigation href="http://ionic.local/*"/>
   <allow-navigation href="http://172.30.1.56:8100"/>
