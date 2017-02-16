@@ -10,7 +10,7 @@ install:
   - ionic state restore
   
 before_script:
-  - cd Trueheart
+  - cd redspy/Trueheart
   - wget http://dl.google.com/android/android-sdk_r24.4-linux.tgz
   - tar -xvf android-sdk_r24.4-linux.tgz
   - echo y | ./android-sdk-linux/tools/android update sdk --no-ui --all --filter platform-tools
