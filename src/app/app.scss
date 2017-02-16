@@ -45,6 +45,9 @@ ion-header {
     font-weight: 300;
     color: #fff;
   }
+  .back-button-text {
+    color: #fff;
+  }
 }
 
 ion-footer {
@@ -99,7 +102,7 @@ ion-icon {
     }
   }
 
-  button.item-md {
+  button.item {
     background-color:#386A6B;
     color: #fff;
   }

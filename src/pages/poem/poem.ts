@@ -41,11 +41,9 @@ export class PoemPage {
     this.focusBody = "";
     this.nextBody = "";
 
-    this.fontSize = configService.getFontSize();
-    if (this.fontSize <= 1.0 && this.fontSize >= 4.0) {
-      this.fontSize = 1.2;
-      this.configService.setFontSize(this.fontSize);
-    }
+    this.fontSize = configService.getFontSize() || 1.2;
+    configService.setFontSize(this.fontSize);
+    
     this.fontSizeString = this.fontSize + 'rem';
 
     this.footerShow = false;
