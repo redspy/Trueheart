@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-
-<!--<widget id="com.redspy.trueheart" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Trueheart</name>
-  <description>An awesome Ionic/Cordova app.</description>
-  <author email="redspy@naver.com" href="http://github.io/redspy/Trueheart/">Minsu Han</author>-->
-
 <widget id="com.ionicframework.teart776432" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>씨, 발아한다</name>
   <description>An awesome Ionic/Cordova app.</description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="ShowSplashScreenSpinner" value="false"/>
@@ -26,6 +19,7 @@
   <preference name="orientation" value="portrait"/>
   <allow-navigation href="http://ionic.local/*"/>
   <allow-navigation href="http://172.30.1.56:8100"/>
+  <allow-navigation href="http://192.168.219.153:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
